@@ -8,7 +8,7 @@
  * @source https://github.com/1temmxxgod/discord-themes
 */
 
-/* import theme modules */
+/* ✅ ИМПОРТ БАЗОВОЙ ТЕМЫ */
 @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
 
 /* 🏰 ГОТИЧЕСКИЕ ТЕКСТУРЫ */
@@ -19,17 +19,17 @@
 }
 
 body {
-    /* font options */
-    --font: 'figtree';
-    --code-font: 'Courier New';
-    font-weight: 400;
+    /* 🔥 НОВЫЙ ШРИФТ - Inter (супер читаемый) */
+    --font: 'Inter', 'figtree', sans-serif;
+    --code-font: 'JetBrains Mono', 'Courier New', monospace;
+    font-weight: 450; /* немного жирнее для лучшей читаемости */
 
     /* sizes */
     --gap: 12px;
     --divider-thickness: 3px;
     --border-thickness: 2px;
 
-    /* 🕯️ АНИМАЦИИ - МЕДЛЕННЫЕ, ПЛАВНЫЕ, ГОТИЧЕСКИЕ */
+    /* анимации */
     --animations: on;
     --list-item-transition: 0.4s cubic-bezier(0.25, 0.1, 0.15, 1);
     --dms-icon-svg-transition: 0.5s ease-out;
@@ -45,7 +45,7 @@ body {
     --custom-window-controls: on;
     --window-control-size: 16px;
 
-    /* ⚰️ DMS ИКОНКА - КРЕСТ */
+    /* DMS иконка */
     --custom-dms-icon: custom;
     --dms-icon-svg-url: url('https://cdn-icons-png.flaticon.com/512/2586/2586895.png');
     --dms-icon-svg-size: 70%;
@@ -53,15 +53,15 @@ body {
     --dms-icon-color-after: #ffffff;
     --custom-dms-background: off;
 
-    /* 🖼️ ФОН - КАСТОМНЫЙ (ЗАМЕНИТЬ) */
+    /* фон */
     --background-image: on;
-    --background-image-url: url('https://images.unsplash.com/photo-1545153184-57d4cbcb8826?q=80&w=2070'); /* готический собор */
+    --background-image-url: url('https://images.unsplash.com/photo-1545153184-57d4cbcb8826?q=80&w=2070');
     
-    /* ✨ ПРОЗРАЧНОСТЬ И БЛЮР */
+    /* прозрачность */
     --transparency-tweaks: on;
     --remove-bg-layer: off;
     --panel-blur: on;
-    --blur-amount: 5px; /* легкое размытие */
+    --blur-amount: 5px;
     --bg-floating: hsla(0, 0%, 6%, 0.85);
 
     /* chatbar */
@@ -73,59 +73,123 @@ body {
     --small-user-panel: on;
 }
 
-/* 🎨 ЦВЕТА - ВЫСОКИЙ КОНТРАСТ, ГОТИКА */
+/* 🎨 ЦВЕТА */
 :root {
     --colors: on;
 
-    /* 📜 ТЕКСТ - ЯРКИЙ, ЧИТАЕМЫЙ */
+    /* 📜 ТЕКСТ - УВЕЛИЧИЛ КОНТРАСТ */
     --text-0: hsl(0, 0%, 100%);        /* чистый белый */
     --text-1: hsl(0, 0%, 98%);         /* сообщения */
-    --text-2: hsl(0, 0%, 94%);         /* заголовки */
-    --text-3: hsl(0, 0%, 88%);         /* основной текст */
-    --text-4: hsl(0, 0%, 75%);         /* иконки, каналы */
-    --text-5: hsl(0, 0%, 60%);         /* второстепенное */
+    --text-2: hsl(0, 0%, 96%);         /* заголовки */
+    --text-3: hsl(0, 0%, 92%);         /* основной текст */
+    --text-4: hsl(0, 0%, 82%);         /* иконки, каналы */
+    --text-5: hsl(0, 0%, 70%);         /* второстепенное */
 
-    /* 🏛️ ФОН - С ТЕКСТУРОЙ (через background-image) */
-    --bg-1: hsla(0, 0%, 22%, 0.8);     /* кнопки активные */
-    --bg-2: hsla(0, 0%, 18%, 0.8);     /* кнопки */
-    --bg-3: hsla(0, 0%, 14%, 0.85);    /* разделители */
-    --bg-4: hsla(0, 0%, 10%, 0.9);     /* основной фон */
+    /* фон */
+    --bg-1: hsla(0, 0%, 24%, 0.8);
+    --bg-2: hsla(0, 0%, 20%, 0.8);
+    --bg-3: hsla(0, 0%, 16%, 0.85);
+    --bg-4: hsla(0, 0%, 12%, 0.9);
 
-    /* эффекты наведения */
-    --hover: hsla(0, 0%, 60%, 0.2);
-    --active: hsla(0, 0%, 70%, 0.25);
-    --active-2: hsla(0, 0%, 80%, 0.15);
-    --message-hover: hsla(0, 0%, 30%, 0.3);
+    /* эффекты */
+    --hover: hsla(0, 0%, 70%, 0.25);
+    --active: hsla(0, 0%, 80%, 0.3);
+    --active-2: hsla(0, 0%, 90%, 0.2);
+    --message-hover: hsla(0, 0%, 30%, 0.4);
 
-    /* 🥈 АКЦЕНТЫ - СЕРЕБРО, БЕЛЫЙ МЕТАЛЛ */
-    --accent-1: hsl(0, 0%, 85%);
-    --accent-2: hsl(0, 0%, 80%);
-    --accent-3: hsl(0, 0%, 75%);
-    --accent-4: hsl(0, 0%, 90%);
-    --accent-5: hsl(0, 0%, 95%);
-    --accent-new: hsl(0, 0%, 80%);
-
-    /* упоминания */
-    --mention: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 80%), transparent 80%) 40%, transparent);
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 80%), transparent 85%) 40%, transparent);
-    --reply: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 70%), transparent 80%) 40%, transparent);
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 70%), transparent 85%) 40%, transparent);
+    /* 🥈 АКЦЕНТЫ */
+    --accent-1: hsl(0, 0%, 90%);
+    --accent-2: hsl(0, 0%, 85%);
+    --accent-3: hsl(0, 0%, 80%);
+    --accent-4: hsl(0, 0%, 95%);
+    --accent-5: hsl(0, 0%, 100%);
+    --accent-new: hsl(0, 0%, 85%);
 
     /* статусы */
-    --online: oklch(75% 0.12 145);
-    --dnd: oklch(70% 0.14 25);
-    --idle: oklch(78% 0.12 85);
-    --streaming: oklch(72% 0.13 290);
+    --online: oklch(75% 0.15 145);
+    --dnd: oklch(70% 0.18 25);
+    --idle: oklch(78% 0.15 85);
+    --streaming: oklch(72% 0.16 290);
     --offline: var(--text-4);
 
     /* границы */
-    --border-light: hsla(0, 0%, 50%, 0.3);
-    --border: hsla(0, 0%, 60%, 0.4);
-    --border-hover: hsla(0, 0%, 80%, 0.6);
-    --button-border: hsla(0, 0%, 100%, 0.25);
+    --border-light: hsla(0, 0%, 60%, 0.4);
+    --border: hsla(0, 0%, 70%, 0.5);
+    --border-hover: hsla(0, 0%, 90%, 0.7);
+    --button-border: hsla(0, 0%, 100%, 0.3);
 }
 
-/* 🕸️ ДОБАВЛЕНИЕ ТЕКСТУР НА ПАНЕЛИ */
+/* 🔥 УЛУЧШЕНИЕ ВИДИМОСТИ УПОМИНАНИЙ И УВЕДОМЛЕНИЙ */
+
+/* 1. Упоминания (тег @user) - ЖИРНЫМ И ЯРКИМ */
+.mention,
+.wrapper__4d3a9,
+.message__80c10 .mention {
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    padding: 0 2px;
+    border-radius: 3px;
+}
+
+/* 2. Счетчики уведомлений (красные цифры) */
+.numberBadge__2b1f5,
+.base__5f5b2,
+[class*="unread"] [class*="number"],
+.mentionBadge__1fcef {
+    font-weight: 800 !important;
+    font-size: 12px !important;
+    background: #ff4444 !important; /* ярко-красный */
+    color: white !important;
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+    box-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
+}
+
+/* 3. Непрочитанные каналы (жирный текст) */
+.modeUnread__8f439 .name__2c72e,
+.unread__4f3e6 .channelName__3a93d {
+    font-weight: 700 !important;
+    color: white !important;
+}
+
+/* 4. Индикатор непрочитанного (белая полоска) */
+.unread__4f3e6 {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.unread__4f3e6::before {
+    background: white !important;
+    width: 4px !important;
+}
+
+/* 5. Уведомления в списке серверов */
+.guilds__2b93e .pill__1f9d5 {
+    background: white !important;
+    width: 5px !important;
+}
+
+.guilds__2b93e .pill__1f9d5[style*="background"] {
+    background: #ff4444 !important;
+}
+
+/* 6. Выделение сообщения где тебя упомянули */
+.mentioned__513de {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.15), transparent) !important;
+    border-left: 4px solid white !important;
+}
+
+.mentioned__513de:hover {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.25), transparent) !important;
+}
+
+/* 7. Цифры в поиске и других местах */
+.badge__1b1fc,
+.badge__08e62 {
+    font-weight: 700 !important;
+    background: #ff4444 !important;
+}
+
+/* 🕸️ ТЕКСТУРЫ НА ПАНЕЛИ */
 .theme-dark .container__2637a,
 .theme-dark .sidebar__6bdbd,
 .theme-dark .chat__4e4a3,
@@ -135,13 +199,17 @@ body {
     background-blend-mode: overlay;
 }
 
-/* кресты на иконках серверов */
+/* кресты на иконках */
 .guilds__2b93e .wrapper__48112 svg {
     mask-image: var(--cross-overlay);
     mask-size: cover;
 }
 
-/* свечение при наведении */
+/* свечение */
 .containerDefault__29444:hover .name__2c72e {
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
+
+/* 🔤 ПОДКЛЮЧЕНИЕ ШРИФТА INTER */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
