@@ -1,160 +1,128 @@
 /**
- * @name armmods by cfudik - Gothic Edit
- * @description a dark, customizable discord theme with gothic style.
+ * @name armmods by cfudik - Gothic Cathedral
+ * @description a dark, customizable discord theme with gothic textures and high contrast.
  * @author cfudik
- * @version 1.0.0
+ * @version 1.1.0-gothic
  * @website https://cfudik.space
  * @github https://github.com/1temmxxgod
  * @source https://github.com/1temmxxgod/discord-themes/blob/main/armmods-by-cfudik.theme.css
 */
 
-/* import theme modules */
-@import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
+@import url('https://1temmxxgod.github.io/discord-themes/armmods.theme.css');
+
+/* текстуры */
+:root {
+    --gothic-pattern: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.12"><path d="M20 10 L50 2 L80 10 L85 40 L50 55 L15 40 L20 10" fill="none" stroke="white" stroke-width="0.8"/><path d="M30 30 L50 20 L70 30 L65 50 L50 60 L35 50 L30 30" fill="none" stroke="white" stroke-width="0.6"/><circle cx="50" cy="35" r="3" fill="white"/><path d="M45 70 L50 85 L55 70" stroke="white" fill="none"/></svg>');
+    --stone-texture: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.08"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.15"/></svg>');
+}
 
 body {
-    /* font options */
     --font: 'figtree';
     --code-font: '';
     font-weight: 400;
 
-    /* sizes */
     --gap: 12px;
     --divider-thickness: 4px;
     --border-thickness: 1px;
 
-    /* animation/transition options */
+    /* анимации */
     --animations: on;
-    --list-item-transition: 0.3s ease-in-out;
-    --dms-icon-svg-transition: 0.4s ease;
-    --border-hover-transition: 0.2s ease;
+    --list-item-transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --dms-icon-svg-transition: 0.5s ease;
+    --border-hover-transition: 0.25s ease;
 
-    /* top bar options */
     --top-bar-height: var(--gap);
     --top-bar-button-position: titlebar;
     --top-bar-title-position: off;
     --subtle-top-bar-title: off;
 
-    /* window controls */
     --custom-window-controls: on;
     --window-control-size: 14px;
 
-    /* dms button options */
+    /* крест */
     --custom-dms-icon: custom;
-    --dms-icon-svg-url: url('https://cdn-icons-png.flaticon.com/512/2586/2586895.png'); /* крест */
+    --dms-icon-svg-url: url('https://cdn-icons-png.flaticon.com/512/2586/2586895.png');
     --dms-icon-svg-size: 75%;
-    --dms-icon-color-before: var(--icon-secondary);
-    --dms-icon-color-after: var(--white);
+    --dms-icon-color-before: rgba(255, 255, 255, 0.6);
+    --dms-icon-color-after: #ffffff;
     --custom-dms-background: off;
-    --dms-background-image-url: url('');
-    --dms-background-image-size: cover;
-    --dms-background-color: linear-gradient(70deg, var(--blue-2), var(--purple-2), var(--red-2));
 
-    /* background image options */
+    /* фон - ЗАМЕНИТЬ */
     --background-image: on;
-    --background-image-url: url('https://example.com/your-gothic-background.jpg'); /* 🔁 замени */
+    --background-image-url: url('https://images.unsplash.com/photo-1545153184-57d4cbcb8826?q=80&w=2070');
 
-    /* transparency/blur options */
+    /* прозрачность */
     --transparency-tweaks: on;
     --remove-bg-layer: off;
     --panel-blur: on;
-    --blur-amount: 8px; /* уменьшил размытие для чёткости */
-    --bg-floating: hsla(0, 0%, 10%, 0.85); /* более плотный */
+    --blur-amount: 6px;
+    --bg-floating: hsla(0, 0%, 8%, 0.9);
 
-    /* chatbar options */
     --custom-chatbar: separated;
-    --chatbar-height: 56px;
+    --chatbar-height: 58px;
     --chatbar-padding: 8px;
 
-    /* other options */
     --small-user-panel: on;
 }
 
-/* color options */
 :root {
     --colors: on;
 
-    /* 📝 ТЕКСТ - ЯРЧЕ И ЧИТАБЕЛЬНЕЕ */
-    --text-0: hsl(0, 0%, 100%);        /* чистый белый */
-    --text-1: hsl(0, 0%, 98%);         /* почти белый */
-    --text-2: hsl(0, 0%, 92%);         /* очень светлый */
-    --text-3: hsl(0, 0%, 85%);         /* основной текст */
-    --text-4: hsl(0, 0%, 70%);         /* иконки, каналы */
-    --text-5: hsl(0, 0%, 55%);         /* второстепенное */
+    /* текст - яркий */
+    --text-0: hsl(0, 0%, 100%);
+    --text-1: hsl(0, 0%, 98%);
+    --text-2: hsl(0, 0%, 93%);
+    --text-3: hsl(0, 0%, 87%);
+    --text-4: hsl(0, 0%, 72%);
+    --text-5: hsl(0, 0%, 58%);
 
-    /* 🖤 ФОН - МЕНЕЕ ЧЁРНЫЙ, БОЛЕЕ "ВОЗДУШНЫЙ" */
-    --bg-1: hsla(0, 0%, 20%, 0.7);     /* затемненные кнопки */
-    --bg-2: hsla(0, 0%, 18%, 0.7);     /* темные кнопки */
-    --bg-3: hsla(0, 0%, 15%, 0.7);     /* разделители */
-    --bg-4: hsla(0, 0%, 12%, 0.8);     /* основной фон */
+    /* фон */
+    --bg-1: hsla(0, 0%, 24%, 0.75);
+    --bg-2: hsla(0, 0%, 20%, 0.75);
+    --bg-3: hsla(0, 0%, 16%, 0.8);
+    --bg-4: hsla(0, 0%, 12%, 0.85);
 
-    /* эффекты наведения */
-    --hover: hsla(0, 0%, 40%, 0.25);
-    --active: hsla(0, 0%, 50%, 0.3);
-    --active-2: hsla(0, 0%, 60%, 0.2);
-    --message-hover: hsla(0, 0%, 20%, 0.4);
+    --hover: hsla(0, 0%, 50%, 0.2);
+    --active: hsla(0, 0%, 60%, 0.25);
+    --active-2: hsla(0, 0%, 70%, 0.15);
+    --message-hover: hsla(0, 0%, 25%, 0.35);
 
-    /* 🥈 АКЦЕНТЫ - серебристые */
-    --accent-1: var(--grey-1);
-    --accent-2: var(--grey-2);
-    --accent-3: var(--grey-3);
-    --accent-4: var(--grey-4);
-    --accent-5: var(--grey-5);
-    --accent-new: var(--grey-2);
+    /* серебро */
+    --accent-1: hsl(0, 0%, 82%);
+    --accent-2: hsl(0, 0%, 78%);
+    --accent-3: hsl(0, 0%, 74%);
+    --accent-4: hsl(0, 0%, 86%);
+    --accent-5: hsl(0, 0%, 92%);
+    --accent-new: var(--accent-2);
 
-    /* упоминания и ответы */
-    --mention: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 85%) 40%, transparent);
-    --mention-hover: linear-gradient(to right, color-mix(in hsl, var(--accent-2), transparent 90%) 40%, transparent);
-    --reply: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 85%) 40%, transparent);
-    --reply-hover: linear-gradient(to right, color-mix(in hsl, var(--text-3), transparent 90%) 40%, transparent);
+    --mention: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 80%), transparent 80%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 80%), transparent 85%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 70%), transparent 80%) 40%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 70%), transparent 85%) 40%, transparent);
 
-    /* статусы */
-    --online: var(--green-2);
-    --dnd: var(--red-2);
-    --idle: var(--yellow-2);
-    --streaming: var(--purple-2);
+    --online: oklch(74% 0.13 150);
+    --dnd: oklch(69% 0.15 25);
+    --idle: oklch(77% 0.12 85);
+    --streaming: oklch(71% 0.14 295);
     --offline: var(--text-4);
 
-    /* границы */
-    --border-light: var(--hover);
-    --border: var(--active);
-    --border-hover: var(--active);
-    --button-border: hsla(0, 0%, 100%, 0.15);
+    --border-light: hsla(0, 0%, 55%, 0.3);
+    --border: hsla(0, 0%, 65%, 0.4);
+    --border-hover: hsla(0, 0%, 85%, 0.5);
+    --button-border: hsla(0, 0%, 100%, 0.2);
+}
 
-    /* 🎨 БАЗОВЫЕ ЦВЕТА - серебро */
-    --grey-1: oklch(90% 0.02 0);
-    --grey-2: oklch(82% 0.02 0);
-    --grey-3: oklch(74% 0.02 0);
-    --grey-4: oklch(66% 0.02 0);
-    --grey-5: oklch(58% 0.02 0);
+/* текстуры на панели */
+.theme-dark .container__2637a,
+.theme-dark .sidebar__6bdbd,
+.theme-dark .chat__4e4a3,
+.theme-dark .panels__74b2b,
+.theme-dark .content__45678 {
+    background-image: var(--stone-texture), var(--gothic-pattern) !important;
+    background-blend-mode: soft-light;
+}
 
-    /* приглушённые акценты */
-    --red-1: oklch(75% 0.08 20);
-    --red-2: oklch(70% 0.08 20);
-    --red-3: oklch(65% 0.08 20);
-    --red-4: oklch(60% 0.08 20);
-    --red-5: oklch(55% 0.08 20);
-
-    --green-1: oklch(75% 0.06 150);
-    --green-2: oklch(70% 0.06 150);
-    --green-3: oklch(65% 0.06 150);
-    --green-4: oklch(60% 0.06 150);
-    --green-5: oklch(55% 0.06 150);
-
-    --blue-1: oklch(75% 0.06 220);
-    --blue-2: oklch(70% 0.06 220);
-    --blue-3: oklch(65% 0.06 220);
-    --blue-4: oklch(60% 0.06 220);
-    --blue-5: oklch(55% 0.06 220);
-
-    --yellow-1: oklch(80% 0.07 85);
-    --yellow-2: oklch(75% 0.07 85);
-    --yellow-3: oklch(70% 0.07 85);
-    --yellow-4: oklch(65% 0.07 85);
-    --yellow-5: oklch(60% 0.07 85);
-
-    --purple-1: oklch(75% 0.08 300);
-    --purple-2: oklch(70% 0.08 300);
-    --purple-3: oklch(65% 0.08 300);
-    --purple-4: oklch(60% 0.08 300);
-    --purple-5: oklch(55% 0.08 300);
+/* легкое свечение текста при наведении */
+.channel__56d39:hover .name__2c72e {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }

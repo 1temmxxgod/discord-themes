@@ -1,0 +1,147 @@
+/**
+ * @name midnight (Gothic Cathedral)
+ * @description a dark, customizable discord theme with gothic textures and high contrast.
+ * @author cfudik
+ * @version 2.1.1-gothic
+ * @website https://cfudik.space
+ * @github https://github.com/1temmxxgod
+ * @source https://github.com/1temmxxgod/discord-themes
+*/
+
+/* import theme modules */
+@import url('https://1temmxxgod.github.io/discord-themes/armmods.theme.css');
+
+/* 🏰 ГОТИЧЕСКИЕ ТЕКСТУРЫ */
+:root {
+    --gothic-pattern: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.15"><path d="M20 10 L50 2 L80 10 L85 40 L50 55 L15 40 L20 10" fill="none" stroke="white" stroke-width="0.8"/><path d="M30 30 L50 20 L70 30 L65 50 L50 60 L35 50 L30 30" fill="none" stroke="white" stroke-width="0.6"/><circle cx="50" cy="35" r="3" fill="white"/><path d="M45 70 L50 85 L55 70" stroke="white" fill="none"/></svg>');
+    --stone-texture: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.1"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.2"/></svg>');
+    --cross-overlay: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path d="M50 10 L50 90 M10 50 L90 50" stroke="white" stroke-width="1.5"/><circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="0.8"/></svg>');
+}
+
+body {
+    /* font options */
+    --font: 'figtree';
+    --code-font: 'Courier New';
+    font-weight: 400;
+
+    /* sizes */
+    --gap: 12px;
+    --divider-thickness: 3px;
+    --border-thickness: 2px;
+
+    /* 🕯️ АНИМАЦИИ - МЕДЛЕННЫЕ, ПЛАВНЫЕ, ГОТИЧЕСКИЕ */
+    --animations: on;
+    --list-item-transition: 0.4s cubic-bezier(0.25, 0.1, 0.15, 1);
+    --dms-icon-svg-transition: 0.5s ease-out;
+    --border-hover-transition: 0.3s ease;
+
+    /* top bar */
+    --top-bar-height: var(--gap);
+    --top-bar-button-position: titlebar;
+    --top-bar-title-position: off;
+    --subtle-top-bar-title: off;
+
+    /* window controls */
+    --custom-window-controls: on;
+    --window-control-size: 16px;
+
+    /* ⚰️ DMS ИКОНКА - КРЕСТ */
+    --custom-dms-icon: custom;
+    --dms-icon-svg-url: url('https://cdn-icons-png.flaticon.com/512/2586/2586895.png');
+    --dms-icon-svg-size: 70%;
+    --dms-icon-color-before: rgba(255, 255, 255, 0.5);
+    --dms-icon-color-after: #ffffff;
+    --custom-dms-background: off;
+
+    /* 🖼️ ФОН - КАСТОМНЫЙ (ЗАМЕНИТЬ) */
+    --background-image: on;
+    --background-image-url: url('https://images.unsplash.com/photo-1545153184-57d4cbcb8826?q=80&w=2070'); /* готический собор */
+    
+    /* ✨ ПРОЗРАЧНОСТЬ И БЛЮР */
+    --transparency-tweaks: on;
+    --remove-bg-layer: off;
+    --panel-blur: on;
+    --blur-amount: 5px; /* легкое размытие */
+    --bg-floating: hsla(0, 0%, 6%, 0.85);
+
+    /* chatbar */
+    --custom-chatbar: separated;
+    --chatbar-height: 60px;
+    --chatbar-padding: 10px;
+
+    /* other */
+    --small-user-panel: on;
+}
+
+/* 🎨 ЦВЕТА - ВЫСОКИЙ КОНТРАСТ, ГОТИКА */
+:root {
+    --colors: on;
+
+    /* 📜 ТЕКСТ - ЯРКИЙ, ЧИТАЕМЫЙ */
+    --text-0: hsl(0, 0%, 100%);        /* чистый белый */
+    --text-1: hsl(0, 0%, 98%);         /* сообщения */
+    --text-2: hsl(0, 0%, 94%);         /* заголовки */
+    --text-3: hsl(0, 0%, 88%);         /* основной текст */
+    --text-4: hsl(0, 0%, 75%);         /* иконки, каналы */
+    --text-5: hsl(0, 0%, 60%);         /* второстепенное */
+
+    /* 🏛️ ФОН - С ТЕКСТУРОЙ (через background-image) */
+    --bg-1: hsla(0, 0%, 22%, 0.8);     /* кнопки активные */
+    --bg-2: hsla(0, 0%, 18%, 0.8);     /* кнопки */
+    --bg-3: hsla(0, 0%, 14%, 0.85);    /* разделители */
+    --bg-4: hsla(0, 0%, 10%, 0.9);     /* основной фон */
+
+    /* эффекты наведения */
+    --hover: hsla(0, 0%, 60%, 0.2);
+    --active: hsla(0, 0%, 70%, 0.25);
+    --active-2: hsla(0, 0%, 80%, 0.15);
+    --message-hover: hsla(0, 0%, 30%, 0.3);
+
+    /* 🥈 АКЦЕНТЫ - СЕРЕБРО, БЕЛЫЙ МЕТАЛЛ */
+    --accent-1: hsl(0, 0%, 85%);
+    --accent-2: hsl(0, 0%, 80%);
+    --accent-3: hsl(0, 0%, 75%);
+    --accent-4: hsl(0, 0%, 90%);
+    --accent-5: hsl(0, 0%, 95%);
+    --accent-new: hsl(0, 0%, 80%);
+
+    /* упоминания */
+    --mention: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 80%), transparent 80%) 40%, transparent);
+    --mention-hover: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 80%), transparent 85%) 40%, transparent);
+    --reply: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 70%), transparent 80%) 40%, transparent);
+    --reply-hover: linear-gradient(to right, color-mix(in hsl, hsl(0, 0%, 70%), transparent 85%) 40%, transparent);
+
+    /* статусы */
+    --online: oklch(75% 0.12 145);
+    --dnd: oklch(70% 0.14 25);
+    --idle: oklch(78% 0.12 85);
+    --streaming: oklch(72% 0.13 290);
+    --offline: var(--text-4);
+
+    /* границы */
+    --border-light: hsla(0, 0%, 50%, 0.3);
+    --border: hsla(0, 0%, 60%, 0.4);
+    --border-hover: hsla(0, 0%, 80%, 0.6);
+    --button-border: hsla(0, 0%, 100%, 0.25);
+}
+
+/* 🕸️ ДОБАВЛЕНИЕ ТЕКСТУР НА ПАНЕЛИ */
+.theme-dark .container__2637a,
+.theme-dark .sidebar__6bdbd,
+.theme-dark .chat__4e4a3,
+.theme-dark .panels__74b2b,
+.theme-dark .content__45678 {
+    background-image: var(--stone-texture), var(--gothic-pattern) !important;
+    background-blend-mode: overlay;
+}
+
+/* кресты на иконках серверов */
+.guilds__2b93e .wrapper__48112 svg {
+    mask-image: var(--cross-overlay);
+    mask-size: cover;
+}
+
+/* свечение при наведении */
+.containerDefault__29444:hover .name__2c72e {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+}
