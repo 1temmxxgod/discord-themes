@@ -49,7 +49,7 @@ body {
 
     /* фон - ЗАМЕНИТЬ */
     --background-image: on;
-    --background-image-url: url('https://1temmxxgod.github.io/discord-themes/arm_banner.png');
+    /*--background-image-url: url('https://1temmxxgod.github.io/discord-themes/arm_banner.png');*/
 
     /* прозрачность */
     --transparency-tweaks: on;
