@@ -228,3 +228,31 @@ body {
     background: #0f0f0f !important;
     background-image: none !important;
 }
+
+/* ===== ФИКС ПРАВОЙ ПАНЕЛИ (УБИРАЕМ ТЕКСТУРЫ) ===== */
+.theme-dark .members__45678,
+.theme-dark .membersWrap__45678,
+.theme-dark [class*="members"] {
+    background: #141414 !important;
+    background-image: none !important;
+    mask-image: none !important;
+}
+
+/* УБИРАЕМ КРЕСТЫ С ПРАВОЙ ПАНЕЛИ */
+.theme-dark .members__45678 svg,
+.theme-dark [class*="members"] svg {
+    mask-image: none !important;
+}
+
+/* ПРАВИЛЬНЫЙ БЕКГРАУНД ДЛЯ ПРАВОЙ ПАНЕЛИ */
+.theme-dark .container__45678,
+.theme-dark .chat__4e4a3 {
+    background: #0f0f0f !important;
+}
+
+/* ЧИСТИМ ВСЕ ЛИШНИЕ ТЕКСТУРЫ СПРАВА */
+.theme-dark .members__45678,
+.theme-dark .membersWrap__45678 {
+    background-image: none !important;
+    background-blend-mode: normal !important;
+}
