@@ -213,3 +213,18 @@ body {
 /* 🔤 ПОДКЛЮЧЕНИЕ ШРИФТА INTER */
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+/* ПОЛНОСТЬЮ ОЧИЩАЕМ ПРАВУЮ ПАНЕЛЬ */
+[class*="members"] {
+    background: #141414 !important;
+    background-image: none !important;
+}
+
+[class*="members"] * {
+    background-image: none !important;
+}
+
+.theme-dark .content__45678 {
+    background: #0f0f0f !important;
+    background-image: none !important;
+}
