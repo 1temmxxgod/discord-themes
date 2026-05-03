@@ -2,7 +2,7 @@
  * @name armmods (Gothic Cathedral)
  * @description a dark, customizable discord theme with gothic textures and high contrast.
  * @author cfudik
- * @version 2.1.1-gothic
+ * @version 3.0.0
  * @website https://cfudik.space
  * @github https://github.com/1temmxxgod
  * @source https://github.com/1temmxxgod/discord-themes
@@ -11,18 +11,22 @@
 /* ✅ ИМПОРТ БАЗОВОЙ ТЕМЫ */
 @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
 
+/* 🔤 ПОДКЛЮЧЕНИЕ ШРИФТОВ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Days+One&display=swap');
+
 /* 🏰 ГОТИЧЕСКИЕ ТЕКСТУРЫ */
 :root {
     --gothic-pattern: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.15"><path d="M20 10 L50 2 L80 10 L85 40 L50 55 L15 40 L20 10" fill="none" stroke="white" stroke-width="0.8"/><path d="M30 30 L50 20 L70 30 L65 50 L50 60 L35 50 L30 30" fill="none" stroke="white" stroke-width="0.6"/><circle cx="50" cy="35" r="3" fill="white"/><path d="M45 70 L50 85 L55 70" stroke="white" fill="none"/></svg>');
     --stone-texture: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" opacity="0.1"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="1" stitchTiles="stitch"/></filter><rect width="100" height="100" filter="url(%23noise)" opacity="0.2"/></svg>');
-    --cross-overlay: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path d="M50 10 L50 90 M10 50 L90 50" stroke="white" stroke-width="1.5"/><circle cx="50" cy="50" r="15" fill="none" stroke="white" stroke-width="0.8"/></svg>');
 }
 
 body {
-    /* 🔥 НОВЫЙ ШРИФТ - Inter (супер читаемый) */
-    --font: 'Inter', 'figtree', sans-serif;
+    /* ШРИФТЫ */
+    --font: 'Days One', 'Inter', 'figtree', sans-serif;
     --code-font: 'JetBrains Mono', 'Courier New', monospace;
-    font-weight: 450; /* немного жирнее для лучшей читаемости */
+    font-weight: 450;
 
     /* sizes */
     --gap: 12px;
@@ -77,27 +81,23 @@ body {
 :root {
     --colors: on;
 
-    /* 📜 ТЕКСТ - УВЕЛИЧИЛ КОНТРАСТ */
-    --text-0: hsl(0, 0%, 100%);        /* чистый белый */
-    --text-1: hsl(0, 0%, 98%);         /* сообщения */
-    --text-2: hsl(0, 0%, 96%);         /* заголовки */
-    --text-3: hsl(0, 0%, 92%);         /* основной текст */
-    --text-4: hsl(0, 0%, 82%);         /* иконки, каналы */
-    --text-5: hsl(0, 0%, 70%);         /* второстепенное */
+    --text-0: hsl(0, 0%, 100%);
+    --text-1: hsl(0, 0%, 98%);
+    --text-2: hsl(0, 0%, 96%);
+    --text-3: hsl(0, 0%, 92%);
+    --text-4: hsl(0, 0%, 82%);
+    --text-5: hsl(0, 0%, 70%);
 
-    /* фон */
     --bg-1: hsla(0, 0%, 24%, 0.8);
     --bg-2: hsla(0, 0%, 20%, 0.8);
     --bg-3: hsla(0, 0%, 16%, 0.85);
     --bg-4: hsla(0, 0%, 12%, 0.9);
 
-    /* эффекты */
     --hover: hsla(0, 0%, 70%, 0.25);
     --active: hsla(0, 0%, 80%, 0.3);
     --active-2: hsla(0, 0%, 90%, 0.2);
     --message-hover: hsla(0, 0%, 30%, 0.4);
 
-    /* 🥈 АКЦЕНТЫ */
     --accent-1: hsl(0, 0%, 90%);
     --accent-2: hsl(0, 0%, 85%);
     --accent-3: hsl(0, 0%, 80%);
@@ -105,154 +105,367 @@ body {
     --accent-5: hsl(0, 0%, 100%);
     --accent-new: hsl(0, 0%, 85%);
 
-    /* статусы */
     --online: oklch(75% 0.15 145);
     --dnd: oklch(70% 0.18 25);
     --idle: oklch(78% 0.15 85);
     --streaming: oklch(72% 0.16 290);
     --offline: var(--text-4);
 
-    /* границы */
     --border-light: hsla(0, 0%, 60%, 0.4);
     --border: hsla(0, 0%, 70%, 0.5);
     --border-hover: hsla(0, 0%, 90%, 0.7);
     --button-border: hsla(0, 0%, 100%, 0.3);
 }
 
-/* 🔥 УЛУЧШЕНИЕ ВИДИМОСТИ УПОМИНАНИЙ И УВЕДОМЛЕНИЙ */
-
-/* 1. Упоминания (тег @user) - ЖИРНЫМ И ЯРКИМ */
+/* ============================================
+   УПОМИНАНИЯ
+   ============================================ */
 .mention,
 .wrapper__4d3a9,
 .message__80c10 .mention {
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    background: rgba(255, 255, 255, 0.15) !important;
-    padding: 0 2px;
-    border-radius: 3px;
+    font-weight: 800 !important;
+    color: #ffd700 !important;
+    background: rgba(255, 215, 0, 0.2) !important;
+    padding: 2px 6px;
+    border-radius: 6px;
 }
 
-/* 2. Счетчики уведомлений (красные цифры) */
+.mentioned__513de {
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.1), transparent) !important;
+    border-left: 4px solid #ffd700 !important;
+}
+
+.mentioned__513de:hover {
+    background: linear-gradient(to right, rgba(255, 215, 0, 0.15), transparent) !important;
+}
+
+/* ============================================
+   УВЕДОМЛЕНИЯ И БЕЙДЖИ
+   ============================================ */
 .numberBadge__2b1f5,
 .base__5f5b2,
 [class*="unread"] [class*="number"],
 .mentionBadge__1fcef {
     font-weight: 800 !important;
-    font-size: 12px !important;
-    background: #ff4444 !important; /* ярко-красный */
+    font-size: 11px !important;
+    background: #ff3333 !important;
     color: white !important;
-    text-shadow: 0 0 3px rgba(0,0,0,0.5);
-    box-shadow: 0 0 8px rgba(255, 68, 68, 0.5);
+    text-shadow: 0 0 2px rgba(0,0,0,0.5);
+    box-shadow: 0 0 6px rgba(255,51,51,0.5);
 }
 
-/* 3. Непрочитанные каналы (жирный текст) */
+/* ============================================
+   НЕПРОЧИТАННЫЕ КАНАЛЫ
+   ============================================ */
 .modeUnread__8f439 .name__2c72e,
 .unread__4f3e6 .channelName__3a93d {
-    font-weight: 700 !important;
+    font-weight: 800 !important;
     color: white !important;
 }
 
-/* 4. Индикатор непрочитанного (белая полоска) */
 .unread__4f3e6 {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 215, 0, 0.1);
 }
 
 .unread__4f3e6::before {
-    background: white !important;
+    background: #ffd700 !important;
     width: 4px !important;
 }
 
-/* 5. Уведомления в списке серверов */
+/* ============================================
+   СПИСОК СЕРВЕРОВ
+   ============================================ */
 .guilds__2b93e .pill__1f9d5 {
-    background: white !important;
-    width: 5px !important;
+    background: #ffd700 !important;
+    width: 4px !important;
 }
 
 .guilds__2b93e .pill__1f9d5[style*="background"] {
-    background: #ff4444 !important;
+    background: #ff3333 !important;
 }
 
-/* 6. Выделение сообщения где тебя упомянули */
-.mentioned__513de {
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.15), transparent) !important;
-    border-left: 4px solid white !important;
-}
-
-.mentioned__513de:hover {
-    background: linear-gradient(to right, rgba(255, 255, 255, 0.25), transparent) !important;
-}
-
-/* 7. Цифры в поиске и других местах */
-.badge__1b1fc,
-.badge__08e62 {
-    font-weight: 700 !important;
-    background: #ff4444 !important;
-}
-
-/* 🕸️ ТЕКСТУРЫ НА ПАНЕЛИ */
+/* ============================================
+   ТЕКСТУРЫ ТОЛЬКО НА ЛЕВЫХ ПАНЕЛЯХ (БЕЗ ПРАВОЙ)
+   ============================================ */
 .theme-dark .container__2637a,
 .theme-dark .sidebar__6bdbd,
 .theme-dark .chat__4e4a3,
-.theme-dark .panels__74b2b,
-.theme-dark .content__45678 {
+.theme-dark .panels__74b2b {
     background-image: var(--stone-texture), var(--gothic-pattern) !important;
     background-blend-mode: overlay;
 }
 
-/* кресты на иконках */
-.guilds__2b93e .wrapper__48112 svg {
-    mask-image: var(--cross-overlay);
-    mask-size: cover;
+/* ============================================
+   ПРАВАЯ ПАНЕЛЬ (СПИСОК УЧАСТНИКОВ) - ЧИСТАЯ
+   ============================================ */
+.theme-dark .members_c48ade,
+.theme-dark .membersWrap_c48ade,
+.theme-dark [class*="members"],
+.theme-dark [class*="membersWrap"] {
+    background: #141414 !important;
+    background-image: none !important;
+    background-color: #141414 !important;
 }
 
-/* свечение */
-.containerDefault__29444:hover .name__2c72e {
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-/* 🔤 ПОДКЛЮЧЕНИЕ ШРИФТА INTER */
-@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
-
-/* ПОЛНОСТЬЮ ОЧИЩАЕМ ПРАВУЮ ПАНЕЛЬ */
-[class*="members"] {
+.theme-dark .members_c48ade > div,
+.theme-dark .membersWrap_c48ade > div,
+.theme-dark [class*="members"] > div {
     background: #141414 !important;
     background-image: none !important;
 }
 
-[class*="members"] * {
-    background-image: none !important;
+.member_c48ade,
+.member-2gU6Ar,
+[class*="member"] {
+    background: transparent !important;
 }
 
+.member_c48ade:hover,
+.member-2gU6Ar:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-radius: 8px;
+}
+
+.membersGroup_c48ade,
+.membersGroup-2eiYxl {
+    color: #888888 !important;
+}
+
+/* ============================================
+   ОСНОВНОЙ ЧАТ
+   ============================================ */
+.theme-dark .chat__4e4a3,
 .theme-dark .content__45678 {
     background: #0f0f0f !important;
-    background-image: none !important;
 }
 
-/* ===== ФИКС ПРАВОЙ ПАНЕЛИ (УБИРАЕМ ТЕКСТУРЫ) ===== */
-.theme-dark .members__45678,
-.theme-dark .membersWrap__45678,
-.theme-dark [class*="members"] {
-    background: #141414 !important;
-    background-image: none !important;
-    mask-image: none !important;
+/* ============================================
+   ПОЛЕ ВВОДА СООБЩЕНИЙ
+   ============================================ */
+.scrollableContainer_b2ce9c {
+    background: #1a1a1a !important;
+    border-radius: 20px !important;
+    border: 1px solid #2a2a2a !important;
 }
 
-/* УБИРАЕМ КРЕСТЫ С ПРАВОЙ ПАНЕЛИ */
-.theme-dark .members__45678 svg,
-.theme-dark [class*="members"] svg {
-    mask-image: none !important;
+.textArea_b2ce9c {
+    color: #e0e0e0 !important;
 }
 
-/* ПРАВИЛЬНЫЙ БЕКГРАУНД ДЛЯ ПРАВОЙ ПАНЕЛИ */
-.theme-dark .container__45678,
-.theme-dark .chat__4e4a3 {
-    background: #0f0f0f !important;
+/* ============================================
+   КНОПКИ
+   ============================================ */
+.button_dd4f85,
+.lookFilled_dd4f85 {
+    background: #ffffff !important;
+    color: #0a0a0a !important;
+    border-radius: 10px;
+    font-weight: 700;
 }
 
-/* ЧИСТИМ ВСЕ ЛИШНИЕ ТЕКСТУРЫ СПРАВА */
-.theme-dark .members__45678,
-.theme-dark .membersWrap__45678 {
-    background-image: none !important;
-    background-blend-mode: normal !important;
+.button_dd4f85:hover {
+    background: #e0e0e0 !important;
+}
+
+/* ============================================
+   СКРОЛЛБАРЫ
+   ============================================ */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333333;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555555;
+}
+
+/* ============================================
+   СООБЩЕНИЯ
+   ============================================ */
+.message_ceda67 {
+    border-radius: 12px;
+    margin: 4px 12px;
+    padding: 6px 12px;
+}
+
+.message_ceda67:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.username_f75fb0 {
+    color: #ffffff !important;
+    font-weight: 700;
+}
+
+.timestamp_f75fb0 {
+    color: #666666;
+    font-size: 10px;
+}
+
+.messageContent_f75fb0,
+.contents_f75fb0 {
+    color: #e0e0e0;
+}
+
+/* ============================================
+   ЭМБЕДЫ И РЕАКЦИИ
+   ============================================ */
+.embedFull_d25df5 {
+    background: #1a1a1a;
+    border-radius: 12px;
+    border-left: 4px solid #ffffff;
+}
+
+.reaction__3d13c {
+    background: #1a1a1a;
+    border-radius: 20px;
+    border: 1px solid #2a2a2a;
+}
+
+.reaction__3d13c:hover {
+    background: #252525;
+}
+
+/* ============================================
+   КАНАЛЫ (ЛЕВАЯ ПАНЕЛЬ)
+   ============================================ */
+.channel_cb254e .content_cb254e {
+    border-radius: 8px;
+    margin: 2px 8px;
+}
+
+.channel_cb254e:hover .content_cb254e {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.modeSelected_cb254e .content_cb254e {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modeSelected_cb254e .name_cb254e {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.name_cb254e {
+    color: #888888;
+}
+
+.modeUnread_fbafe5 .name_fbafe5 {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+/* ============================================
+   РОЛИ - ОРИГИНАЛЬНЫЕ ЦВЕТА
+   ============================================ */
+.role_b9f5e8,
+.role_f7b2c7 {
+    background: transparent !important;
+    color: inherit !important;
+    filter: brightness(1.2) saturate(1.1);
+}
+
+.role_b9f5e8 span,
+.role_f7b2c7 span {
+    color: inherit !important;
+}
+
+/* ============================================
+   ВСПЛЫВАЮЩИЕ ОКНА
+   ============================================ */
+.popout_c1046d,
+.menu_b32b5a {
+    background: #1a1a1a;
+    border-radius: 16px;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+.menu_b32b5a .item_b32b5a {
+    color: #e0e0e0;
+}
+
+.menu_b32b5a .item_b32b5a:hover {
+    background: #2a2a2a;
+}
+
+/* ============================================
+   ИКОНКИ И АВАТАРКИ
+   ============================================ */
+.icon_bd93b2 {
+    color: #888888;
+}
+
+.icon_bd93b2:hover {
+    color: #ffffff;
+}
+
+.avatar__08316 {
+    border-radius: 50%;
+}
+
+.avatar__08316:hover {
+    filter: brightness(0.9);
+}
+
+/* ============================================
+   ССЫЛКИ
+   ============================================ */
+a,
+.link_f75fb0 {
+    color: #aaaaff;
+}
+
+a:hover {
+    color: #ffffff;
+}
+
+/* ============================================
+   КОД
+   ============================================ */
+code,
+code.inline {
+    background: #1a1a1a;
+    color: #ffb3c1;
+    border-radius: 6px;
+    padding: 2px 6px;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* ============================================
+   ТИПИНГ (набор текста)
+   ============================================ */
+.typing_f75fb0 {
+    color: #888888;
+}
+
+/* ============================================
+   РАЗДЕЛИТЕЛИ
+   ============================================ */
+.divider_f75fb0 {
+    border-color: #2a2a2a;
+}
+
+/* ============================================
+   ЗАГОЛОВКИ
+   ============================================ */
+.title__9293f,
+.title_cb254e {
+    color: #ffffff;
+}
+
+/* ============================================
+   СВЕЧЕНИЕ ПРИ НАВЕДЕНИИ
+   ============================================ */
+.containerDefault__29444:hover .name__2c72e {
+    text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
 }
